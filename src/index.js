@@ -1,8 +1,7 @@
 // Your code here
-let url = "http://localhost:3000/films/";
+let url = "http://localhost:3000/films/";    // Define the URL for fetching films data
 let ulFilms = document.getElementById("films");
 let idBuyticket = document.getElementById("buy-ticket")
-
 let movieImg = document.getElementById("poster");
 let idTitle = document.getElementById("title")
 let idRuntime = document.getElementById("runtime")
@@ -13,7 +12,8 @@ let idTicketnum = document.getElementById("ticket-num")
 
 // when this function is called it grabes all the movies from the db.json endpoint and updates the DOM
 function grabMovies(updateDesc = true){
-    ulFilms.innerHTML = "";
+     // Clear the contents of ulFilms element
+  ulFilms.innerHTML = "";
     fetch(url)
     .then(res => res.json())
     .then(data => { 
@@ -21,7 +21,7 @@ function grabMovies(updateDesc = true){
             if(updateDesc){
                 updateMovieDesc(data[0]);
             }
-
+           // Iterate over each movie in the data and add it to the list
             data.map(movie => {
                 addMovie(movie);
             })
@@ -33,7 +33,7 @@ function grabMovies(updateDesc = true){
         }
         }
     )
-    .catch(e => {
+    .catch(e => {               // Handle any errors that occur during the fetch or processing
         console.log(e.message)
         let liNoData = document.createElement("li");
         liNoData.style.color="red";
@@ -41,13 +41,13 @@ function grabMovies(updateDesc = true){
         ulFilms.appendChild(liNoData);
     });
 }
-// this funcxtion is called by default when the site is opened 
+// this function is called by default when the site is opened 
 grabMovies(true);
 
-//this funcion updates the title of the movies in left list ul parent
+//this funcion updates the title of the movies
 function addMovie(movies){
     
-    let remaining = movies.capacity - movies.tickets_sold;
+    let remaining = movies.capacity - movies.tickets_sold;  // Calculating the remaining tickets for the movie
 
     movieTitle = movies.title
     movieId = movies.id
@@ -109,7 +109,7 @@ function updateMovieDesc(movies){
     button.innerText = availabiity;
 }
 
-// when the buyTicket function is called is met to confirm if the are remaining tickets and if the tickets are available it can purchase ad take records of the tickets also
+//Function to buy a ticket for a movie
 function buyTicket(movies){
     movies.tickets_sold++
     let ticketsSold = movies.tickets_sold;
