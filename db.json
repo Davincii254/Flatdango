@@ -1,22 +1,12 @@
 {
   "films": [
     {
-      "id": "1",
-      "title": "The Giant Gila Monster",
-      "runtime": "108",
-      "capacity": 30,
-      "showtime": "04:00PM",
-      "tickets_sold": 30,
-      "description": "A giant lizard terrorizes a rural Texas community and a heroic teenager attempts to destroy the creature.",
-      "poster": "https://www.gstatic.com/tv/thumb/v22vodart/2157/p2157_v_v8_ab.jpg"
-    },
-    {
       "id": "2",
       "title": "Manos: The Hands Of Fate",
       "runtime": "118",
       "capacity": 50,
       "showtime": "06:45PM",
-      "tickets_sold": 15,
+      "tickets_sold": 50,
       "description": "A family gets lost on the road and stumbles upon a hidden, underground, devil-worshiping cult led by the fearsome Master and his servant Torgo.",
       "poster": "https://www.gstatic.com/tv/thumb/v22vodart/47781/p47781_v_v8_ac.jpg"
     },
@@ -153,5 +143,180 @@
     }
   ],
   "tickets": [
+    {
+      "id": "0e99",
+      "film_id": "2",
+      "number_of_tickets": 34
+    },
+    {
+      "id": "e580",
+      "film_id": "2",
+      "number_of_tickets": 33
+    },
+    {
+      "id": "d263",
+      "film_id": "2",
+      "number_of_tickets": 32
+    },
+    {
+      "id": "2c9f",
+      "film_id": "2",
+      "number_of_tickets": 31
+    },
+    {
+      "id": "c7c7",
+      "film_id": "2",
+      "number_of_tickets": 30
+    },
+    {
+      "id": "77c5",
+      "film_id": "2",
+      "number_of_tickets": 29
+    },
+    {
+      "id": "a995",
+      "film_id": "2",
+      "number_of_tickets": 28
+    },
+    {
+      "id": "3d19",
+      "film_id": "2",
+      "number_of_tickets": 27
+    },
+    {
+      "id": "077d",
+      "film_id": "2",
+      "number_of_tickets": 26
+    },
+    {
+      "id": "14cb",
+      "film_id": "2",
+      "number_of_tickets": 25
+    },
+    {
+      "id": "4ba0",
+      "film_id": "2",
+      "number_of_tickets": 24
+    },
+    {
+      "id": "7b03",
+      "film_id": "2",
+      "number_of_tickets": 23
+    },
+    {
+      "id": "4ef8",
+      "film_id": "2",
+      "number_of_tickets": 22
+    },
+    {
+      "id": "7134",
+      "film_id": "2",
+      "number_of_tickets": 21
+    },
+    {
+      "id": "b5b6",
+      "film_id": "2",
+      "number_of_tickets": 20
+    },
+    {
+      "id": "efdf",
+      "film_id": "2",
+      "number_of_tickets": 19
+    },
+    {
+      "id": "da57",
+      "film_id": "2",
+      "number_of_tickets": 18
+    },
+    {
+      "id": "7ecf",
+      "film_id": "2",
+      "number_of_tickets": 17
+    },
+    {
+      "id": "e57a",
+      "film_id": "2",
+      "number_of_tickets": 16
+    },
+    {
+      "id": "8a8d",
+      "film_id": "2",
+      "number_of_tickets": 15
+    },
+    {
+      "id": "5d07",
+      "film_id": "2",
+      "number_of_tickets": 14
+    },
+    {
+      "id": "d0ea",
+      "film_id": "2",
+      "number_of_tickets": 13
+    },
+    {
+      "id": "11a3",
+      "film_id": "2",
+      "number_of_tickets": 12
+    },
+    {
+      "id": "0d87",
+      "film_id": "2",
+      "number_of_tickets": 11
+    },
+    {
+      "id": "30b5",
+      "film_id": "2",
+      "number_of_tickets": 10
+    },
+    {
+      "id": "720d",
+      "film_id": "2",
+      "number_of_tickets": 9
+    },
+    {
+      "id": "21ab",
+      "film_id": "2",
+      "number_of_tickets": 8
+    },
+    {
+      "id": "1d34",
+      "film_id": "2",
+      "number_of_tickets": 7
+    },
+    {
+      "id": "ab07",
+      "film_id": "2",
+      "number_of_tickets": 6
+    },
+    {
+      "id": "0b61",
+      "film_id": "2",
+      "number_of_tickets": 5
+    },
+    {
+      "id": "e1a1",
+      "film_id": "2",
+      "number_of_tickets": 4
+    },
+    {
+      "id": "f08b",
+      "film_id": "2",
+      "number_of_tickets": 3
+    },
+    {
+      "id": "5090",
+      "film_id": "2",
+      "number_of_tickets": 2
+    },
+    {
+      "id": "1f01",
+      "film_id": "2",
+      "number_of_tickets": 1
+    },
+    {
+      "id": "6bca",
+      "film_id": "2",
+      "number_of_tickets": 0
+    }
   ]
 }
