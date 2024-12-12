@@ -11,112 +11,115 @@ let idFilmInfo = document.getElementById("film-info");
 let idShowtime = document.getElementById("showtime");
 let idTicketnum = document.getElementById("ticket-num");
 
-// Function to fetch movies from the database and update the DOM
-function grabMovies(updateDesc = true) {
-    ulFilms.innerHTML = ""; // Clear the current list of movies
-    fetch(url) // Fetch the list of movies from the server
-        .then(res => res.json()) // Parse the response as JSON
-        .then(data => {
-            if (data.length > 0) {
-                // If `updateDesc` is true, set the details of the first movie in the list
-                if (updateDesc) {
-                    updateMovieDesc(data[0]);
-                }
-                // Add each movie to the list
-                data.map(movie => {
-                    addMovie(movie);
-                });
-            } else {
-                // If no movies are available, display a "no data" message
-                let liNoData = document.createElement("li");
-                liNoData.innerText = "No movies available at the moment. Please check back later.";
-                liNoData.style.color = "red";
-                ulFilms.appendChild(liNoData);
+// Function to fetch the movies
+function grabMovies(updateDesc = true){
+    ulFilms.innerHtml = "";   // Clear the current list of movies
+    fetch(url)
+    .then(res => res.json())
+    .then(data => {
+        if(data.length > 0){
+            if(updateDesc) {
+                updateMovieDesc(data[0])
             }
-        })
-        .catch(e => {
-            // Handle errors during the fetch operation
-            console.log(e.message);
+            // Add the movie to the list
+            data.map(movie =>{
+                addMovie(movie)
+            });
+        } else {
+            // If no movie is available in the array
             let liNoData = document.createElement("li");
+            liNoData.innerText = "No movies available at the moment, please check back later";
             liNoData.style.color = "red";
-            liNoData.innerText = "Unable to fetch movies at the moment. Please try again later.";
-            ulFilms.appendChild(liNoData);
-        });
+            ulFilms.appendChild(liNoData)
+        }
+    })
+     .catch(e => {
+        // Handle errors during fetch operatopn
+        console.log(e.message);
+        let liNoData = document.createElement("li");
+        liNoData.innerText = "Unable to fetch moveis at the moment, please check again later.";
+        liNoData.style.color = "red";
+        ulFilms.appendChild(liNoData)
+    });
 }
 
-// Automatically call `grabMovies` when the site loads
-grabMovies(true);
+grabMovies(true)     // Atamatically call grabMovies when the site loads
 
-// Function to add a movie to the movie list in the DOM
-function addMovie(movies) {
+// Function to add a movie to tthe movei list in the DOM
+function addMovie(movies){
     // Calculate the number of tickets remaining for the movie
     let remaining = movies.capacity - movies.tickets_sold;
 
-    let movieTitle = movies.title; // Movie title
-    let movieId = movies.id; // Movie ID
+    let movieTittle = movies.title;
+    let movieId = movies.id;
 
-    // Create a new list item for the movie
+    // CReate a list of the movies
     let liFilm = document.createElement("li");
-    if (!(remaining > 0)) { // If no tickets remain, mark the movie as sold out
-        liFilm.className = "sold-out";
-        liFilm.style.backgroundColor = "rgba(255, 0, 0, 0.2)";
-    }
-    ulFilms.appendChild(liFilm); // Add the list item to the list
 
-    // Add the movie title to the list item
-    let movieSpan = document.createElement("span");
-    movieSpan.innerText = movieTitle;
+    if (!(remaining > 0)) {
+        liFilm.className = "sold out";
+        liFilm.style.backgroundColor = "rgba(255, 0, 0, 0.3)";
+    }
+
+    ulFilms.appendChild(liFilm);
+
+    // Add the movie tittle to the list item
+    let movieSpan = document.createElement("span")
+    movieSpan.innerText = movieTittle;
     liFilm.appendChild(movieSpan);
 
-    // Add a delete button for the movie
+    // add a delete button to each movie
     let deleteButton = document.createElement("button");
-    deleteButton.innerText = "Delete";
+    deleteButton.innerText = "Delete Movie";
     deleteButton.className = "movieDelete";
     liFilm.appendChild(deleteButton);
 
-    // Attach an event listener to the delete button
-    deleteButton.addEventListener('click', () => {
-        deleteMovie(movies); // Call `deleteMovie` when clicked
+    // Attch an event listener to the delete button
+    deleteButton.addEventListener('click', () =>{
+        deleteMovies(movies);   //call deletMovie when clicked
     });
 
-    // Attach an event listener to the movie title
-    movieSpan.addEventListener('click', () => {
-        updateMovieDesc(movies); // Call `updateMovieDesc` when clicked
-    });
+    // Attach an event to the movie tittle
+    movieSpan.addEventListener('click', () =>{
+        updateMovieDesc(movies)   // Call updateMovieDesc when clicked
+    })
 }
 
-// Function to update the details of a movie in the main display
-function updateMovieDesc(movies) {
-    let remaining = movies.capacity - movies.tickets_sold; // Calculate remaining tickets
-    let movieId = movies.id; // Get the movie ID
-    let availability = remaining > 0 ? "Buy Ticket" : "Sold Out"; // Determine ticket availability
 
-    // Update the movie details in the DOM
+// Function to update the details of the movie on the main display
+function updateMovieDesc(movies) {
+    let remaining = movies.capacity - movies.tickets_sold;
+    let movieId = movies.id;
+    let availability = remaining > 0 ? "Buy Ticket" : "Sold Out";
+
+
+    // Update the movie detals on the DOM
     movieImg.src = movies.poster;
     movieImg.alt = movies.title;
     idTitle.innerText = movies.title;
-    idRuntime.innerText = movies.runtime + " minutes";
+    idRuntime.innerText = movies.runtime + "minutes";
     idFilmInfo.innerText = movies.description;
     idShowtime.innerText = movies.showtime;
     idTicketnum.innerText = remaining;
 
-    // Attach a click event to the "Buy Ticket" button
+    // Attach a click event to the Buy Ticket if tickets are availabe
     idBuyticket.onclick = () => {
-        if (remaining > 0) {
-            buyTicket(movies); // Call `buyTicket` if tickets are available
+        if(remaining > 0) {
+            buyticket(movies)
         } else {
-            alert("Oops! Tickets are sold out."); // Show an alert if sold out
+            alert("oooPPPS!! Tickets are sold out.");
         }
     };
+
     idBuyticket.dataset.movieId = movies.id;
 
-    // Update the button text based on ticket availability
+    // Update the button based on the ticket availability
     let button = document.querySelector(`[data-movie-id="${movieId}"]`);
     button.innerText = availability;
 }
 
-// Function to handle ticket purchase
-function buyTicket(movies) {
+// Function to handle the puechase of a ticket
+function buyticket(movies){
     movies.tickets_sold++; // Increment the number of tickets sold
     let requestHeaders = { "Content-Type": "application/json" };
     let requestBody = { "tickets_sold": movies.tickets_sold };

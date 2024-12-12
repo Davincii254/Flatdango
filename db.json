@@ -1,16 +1,6 @@
 {
   "films": [
     {
-      "id": "2",
-      "title": "Manos: The Hands Of Fate",
-      "runtime": "118",
-      "capacity": 50,
-      "showtime": "06:45PM",
-      "tickets_sold": 50,
-      "description": "A family gets lost on the road and stumbles upon a hidden, underground, devil-worshiping cult led by the fearsome Master and his servant Torgo.",
-      "poster": "https://www.gstatic.com/tv/thumb/v22vodart/47781/p47781_v_v8_ac.jpg"
-    },
-    {
       "id": "3",
       "title": "Time Chasers",
       "runtime": "93",
@@ -26,7 +16,7 @@
       "runtime": "101",
       "capacity": 40,
       "showtime": "09:00PM",
-      "tickets_sold": 11,
+      "tickets_sold": 40,
       "description": "A young man meets a farm girl who is actually a witch.",
       "poster": "https://www.gstatic.com/tv/thumb/v22vodart/43468/p43468_v_v8_aa.jpg"
     },
@@ -86,7 +76,7 @@
       "runtime": "122",
       "capacity": 50,
       "showtime": "10:00PM",
-      "tickets_sold": 15,
+      "tickets_sold": 19,
       "description": "Giant spiders from another dimension invade Wisconsin.",
       "poster": "https://www.gstatic.com/tv/thumb/v22vodart/42171/p42171_v_v8_ab.jpg"
     },
