@@ -1,73 +1,101 @@
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Movies Hub</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
-    <link rel="stylesheet" href="./css/styles.css"/>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  </head>
-  <body>
-
-    <!-- navbar -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Flatdango</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"
+    />
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
     <div class="heading">
       <div class='item'>
         <h2 class="ui header">
           <i class="orange ticket icon"></i>
-          <div class="content">
-            FLATDANGO
-          </div>
-          <div class="sub header" id="subtitle">
-            BUY MOVIE TICKETS
-          </div>
+          <div class="content">FLATDANGO</div>
+          <div class="sub header" id="subtitle">BUY MOVIE TICKETS</div>
         </h2>
       </div>
     </div>
 
-    <div class="ui centered grid">
-
-      <!-- side menu -->
-      <div class="four wide column">
-        <div class="list-container">
-
-          <div class="ui divided list" id="films">
-            <div class="film item">
-              <!-- Don't worry about this div until you've completed the base deliverables. -->
-            </div>
-            <div class="film item">
-            </div>
+    <div class="ui centered grid main">
+      <div class="five wide column">
+        <h3 class="ui header">Movie Menu</h3>
+        <div class="ui divided list" id="films">
           </div>
-
-        </div>
       </div>
 
-      <!-- poster -->
-      <div class="four wide column">
-        <img id="poster" src="./assets/placeholderImage.png">
-      </div>
-
-      <!-- showing info -->
-      <div class="four wide column">
-        <div class="ui cards" id="showing">
-
-          <div class="card">
-            <div id="title" class="title">[MOVIE TITLE]</div>
-            <div id="runtime" class="meta">[RUNTIME] minutes</div>
-            <div class="content">
-                <div class="description">
+      <div class="nine wide column" id="movie-details">
+          <div class="ui grid">
+           <div class="six wide column">
+            <img
+              id="movie-poster"
+              src=""
+              alt="Movie Poster"
+            />
+          </div>
+          <div class="ten wide column">
+            <div class="ui cards" id="showing">
+              <div class="card">
+                <div id="title" class="title">[MOVIE TITLE]</div>
+                <div id="runtime" class="meta">[RUNTIME] minutes</div>
+                <div class="content">
+                  <div class="description">
                     <div id="film-info">[INSERT MOVIE DESCRIPTION HERE]</div>
                     <span id="showtime" class="ui label">[SHOWTIME]</span>
                     <span id="ticket-num">[X]</span> remaining tickets
+                  </div>
                 </div>
-            </div>
-            <div class="extra content">
-              <div class="ui orange button">Buy Ticket</div>
+                <div class="extra content">
+                  <button id="buy-ticket" class="ui orange button">
+                    Buy Ticket
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-
         </div>
       </div>
-
     </div>
+
+    <div class="ui container" id="add-movie-container">
+      <h3 class="ui header">Add a New Movie</h3>
+      <form class="ui form" id="add-movie-form">
+        <div class="four fields">
+          <div class="field">
+            <label>Title</label>
+            <input type="text" name="title" placeholder="Movie Title" required />
+          </div>
+          <div class="field">
+            <label>Runtime (minutes)</label>
+            <input type="number" name="runtime" placeholder="e.g., 120" required />
+          </div>
+          <div class="field">
+            <label>Capacity</label>
+            <input type="number" name="capacity" placeholder="e.g., 50" required />
+          </div>
+          <div class="field">
+            <label>Showtime</label>
+            <input type="text" name="showtime" placeholder="e.g., 07:30PM" required />
+          </div>
+        </div>
+        <div class="field">
+          <label>Poster URL</label>
+          <input type="url" name="poster" placeholder="https://..." required />
+        </div>
+        <div class="field">
+          <label>Description</label>
+          <textarea rows="2" name="description" required></textarea>
+        </div>
+        <button class="ui button" type="submit">Add Movie</button>
+      </form>
+    </div>
+
     <script src="./src/index.js"></script>
-  </body>
+</body>
 </html>

@@ -1,55 +1,124 @@
 body {
-  background-color: #ebebeb;
+  background-color: #f4f4f5; 
+  font-family: 'Lato', sans-serif;
 }
 
 .heading {
-  background-color: #333333;
-  margin-bottom: 20px;
-  padding: 5px 0px 5px 15px;
+  background-color: #1c1c1e; 
+  margin-bottom: 30px;
+  padding: 15px 25px;
+  border-bottom: 4px solid #f2711c; 
+}
+.heading .ui.header .content {
+  color: #fff;
+}
+.heading .ui.header .sub.header {
+  color: #a0a0a0;
 }
 
-.title {
-  background-color: #333333;
-  padding: 5px;
-  color: white;
+.main.grid {
+  padding: 0 20px;
 }
 
-#runtime {
-  background-color: #333333;
-  color: #3e8fde;
-  padding: 0px 0px 5px 5px;
+#films {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 10px 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
-
-.content {
-  color: #3e8fde;
-}
-
-#subtitle {
-  color: white;
-  margin-left: 55px;
-}
-
-#showing {
-  margin-left: 20px;
-}
-
-#films li::before {
-  content: "";
-}
-
-.film {
+#films .film.item {
+  padding: 15px 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
   font-size: 16px;
-  text-transform: uppercase;
+  font-weight: 700;
+  color: #333;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+}
+#films .film.item:last-child {
+  border-bottom: none;
+}
+#films .film.item:hover {
+  background-color: #f2711c;
+  color: #fff;
+}
+#films .film.item.sold-out {
+  color: #d0d0d0;
+  text-decoration: line-through;
+  cursor: not-allowed;
+}
+#films .film.item.sold-out:hover {
+  background-color: #fbeadf;
+  color: #d0d0d0;
+}
+#films .delete.button {
+  margin-left: 10px;
 }
 
-.sold-out {
-  color: lightgray;
+#movie-poster {
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  max-width: 100%;
 }
-
-img {
-  max-width: 25vw;
+#showing .card {
+  width: 100%; 
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
-
+#movie-details > .grid > .column:last-child {
+  padding-left: 30px;
+}
+#showing .title {
+  background-color: #1c1c1e;
+  color: white;
+  font-size: 24px;
+  padding: 15px;
+  font-weight: 700;
+}
+#showing .meta {
+  background-color: #1c1c1e;
+  color: #f2711c;
+  padding: 0 15px 10px;
+}
+#showing .content .description {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+}
 #film-info {
+  margin-bottom: 15px;
+}
+#showing .extra.content {
+  padding: 15px !important;
+}
+#buy-ticket.ui.button {
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+#buy-ticket.ui.button:hover {
+  background-color: #e06312; 
+}
+
+
+#add-movie-container {
+  margin-top: 40px;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+#add-movie-container h3 {
   padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 20px;
+}
+#add-movie-form .ui.button {
+  background-color: #21ba45; 
+  color: white;
+}
+#add-movie-form .ui.button:hover {
+  background-color: #1a9a37;
 }
